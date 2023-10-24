@@ -1,14 +1,17 @@
+//Maps are Not Necessary. But 4 Learnibf Purposes>>
+//Maps are Not Necessary. But 4 Learnibf Purposes>>
 //Manage, Edit, Delete and Update Contacts on your phoneBook
  
 #include <iostream>
 #include <fstream>
 #include <map>
 
-using std::cin; 	using std::string; 
-using std::endl;  	using std::cout;
+using std::cin; 	    using std::string; 
+using std::endl;  	    using std::cout;
 using std::ofstream; 	using std::ifstream;
-using std::map; 	using std::make_pair;
-using std::pair;
+using std::map; 	    using std::make_pair;
+using std::pair;        using std::ofstream;
+using std::ifstream;
 
 
 
@@ -56,6 +59,10 @@ void Add() {
         cout<<"Contact exists"<<endl;
     }catch(...){
         contacts.insert(pair<string,string>(make_pair(name,phoneNumber)));
+        ofstream file(".contacts" , std::ios::out | std::ios::app);
+        if (file.is_open())
+        file<<name<<"\t"<<phoneNumber<<std::endl;
+        file.close();
     }
 }
 void Delete(){
